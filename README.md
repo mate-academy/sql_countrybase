@@ -40,15 +40,15 @@ INSERT INTO countries (Id, Name, Area, Population, Source) VALUES
 
 4. Create a query that would return a single row: the country with the ID of 46.
 
-  SELECT * FROM countries WHERE Id = 46;
+  SELECT * FROM countries WHERE id = 46;
 
 5. Create a query that would return the four countries with the following IDs: 18, 34, 54, 59.
 
-  SELECT * FROM countries WHERE Id (18, 34, 54, 59);
+   SELECT * FROM countries WHERE id IN (18, 34, 54, 59);
 
 6. Create a query that would return all the countries except the country with the ID of 27 (`Bangladesh`).
 
-    SELECT * FROM countries WHERE Id != 27;
+    SELECT * FROM countries WHERE id != 27;
 
 7. Create a query that would select the names and sources for the countries whose area is over 1,000,000 km<sup>2</sup>:
 
@@ -56,7 +56,7 @@ INSERT INTO countries (Id, Name, Area, Population, Source) VALUES
     
 8. Create a query that would select the IDs of the countries with missing sources:
 
-   SELECT Id FROM countries WHERE Source = null;
+    SELECT id FROM countries WHERE Source IS NULL;
     
 9. Create a query that would return the area, population, and population density (a computed column aliased `density`) of every country that has a source.
 
@@ -64,7 +64,7 @@ INSERT INTO countries (Id, Name, Area, Population, Source) VALUES
     
 10. Create a query that would return the list of all sources, without repetition:
 
-    SELECT DISTINCT Source;
+    SELECT DISTINCT Source FROM countries;
 
 11. Create a query that would select the countries whose source is official (starting with `Official`) or the area is below 1,000,000 km<sup>2</sup>:
 
@@ -86,23 +86,23 @@ INSERT INTO countries (Id, Name, Area, Population, Source) VALUES
     
 15. Create a query that would return all the countries sorted by their name alphabetically:
 
-  SELECT * FROM countries OREDER BY Name;
+  SELECT * FROM countries ORDER BY Name;
 
 16. Create a query that would return the population _density_ figures of the countries sorted in the descending order. The column should be aliased `density`.
 
-   SELECT (Population/Area) AS "dencity" FROM countries SELECT Source IS NOT  null ORDER BY DENSITY DESC;
+   SELECT (Population/Area) AS "density" FROM countries WHERE Source IS NOT  null ORDER BY DENSITY DESC;
 
 17. Create a query that would return the countries sorted by their source alphabetically, and then (if two or more countries share the same source) by their name in the reverse alphabetical order:
 
-    SELECT * FROM countries OREDER BY Source ASC, Name DESC;
+    SELECT * FROM countries ORDER BY Source ASC, Name DESC;
     
 18. Set all sources to `NULL`:
 
-   UPDATE countries SET Sours = null;
+  UPDATE countries SET "source" = null
     
 19. Update the sources for the countries with the population over 1,000,000,000 to `Official`:
 
-    UPDATE countries SET Sours = 'Official' WHERE population > 1000000000;
+    UPDATE countries SET Source = 'Official' WHERE population > 1000000000;
     
 20. Multiply the area by 100 and add 10 to the population for every country whose ID is greater than 50:
   
