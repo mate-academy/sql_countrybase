@@ -18,13 +18,13 @@ Here are the eight most populous countries in the world:
 CREATE TABLE countries (
   Id integer,
   Name text,
-  Area text,
+  Area integer,
   Population integer,
-  Source integer
+  Source text
 );
 
 2. **Manually** create a query or a series of queries that would fill the table with the information above. Put the query/queries below:
-INSERT INTO people (Id, Name, Area, Population, Source) VALUES
+INSERT INTO countries (Id, Name, Area, Population, Source) VALUES
   (18, 'India', 3287240, 1348834400, 'Based on 2011 census'),
   (27, 'Bangladesh', 143998, 166774136, null),
   (34, 'Pakistan', 803940, 205095217, 'Official population clock'),
@@ -44,7 +44,7 @@ INSERT INTO people (Id, Name, Area, Population, Source) VALUES
 
 5. Create a query that would return the four countries with the following IDs: 18, 34, 54, 59.
 
-  SELECT * FROM countries WHERE Id = 18 OR  Id = 34 OR Id = 54 OR Id = 59;
+  SELECT * FROM countries WHERE Id (18, 34, 54, 59);
 
 6. Create a query that would return all the countries except the country with the ID of 27 (`Bangladesh`).
 
