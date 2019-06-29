@@ -127,7 +127,7 @@ Here are the eight most populous countries in the world:
 17. Create a query that would return the countries sorted by their source alphabetically, and then (if two or more countries share the same source) by their name in the reverse alphabetical order:
 
     ```postgresql
-    SELECT * FROM (SELECT * FROM countries ORDER BY name desc) AS names_desc ORDER BY source ASC;
+    SELECT * FROM countries ORDER BY source ASC, name DESC;
     ```
     
 18. Set all sources to `NULL`:
@@ -157,7 +157,7 @@ Here are the eight most populous countries in the world:
 22. Delete all countries from the table:
 
     ```postgresql
-    DELETE FROM countries;
+    TRUNCATE countries;
     ```
     
 Don’t forget to create a pull request.
