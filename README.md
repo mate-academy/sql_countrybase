@@ -31,8 +31,8 @@ Here are the eight most populous countries in the world:
     ```postgresql
     insert into countries
     values (18, 'India', 3287240, 1348834400, 'Based on 2011 census'),
- 	   (27, 'Bangladesh', 143998, 166774136, null),
-    	   (34, 'Pakistan', 803940, 205095217, 'Official population clock'),
+    	   (27, 'Bangladesh', 143998, 166774136, null),
+	   (34, 'Pakistan', 803940, 205095217, 'Official population clock'),
     	   (42, 'Nigeria', 923768, 200962000, 'UN projection'),
     	   (46, 'United States', 9833517, 329424894, 'Official population clock'),
     	   (54, 'Brazil', 8515767, 210076263, null),
