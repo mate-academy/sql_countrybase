@@ -104,7 +104,7 @@ Here are the eight most populous countries in the world:
 
     ```postgresql
     SELECT * FROM countries
-    WHERE source LIKE ('Official%') OR area < 1000000;
+    WHERE source LIKE ('Official%') AND area < 1000000;
     ```
     
 13. Create a query that would select all the countries except those whose source is official (starting with `Official`):
