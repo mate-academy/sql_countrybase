@@ -97,7 +97,7 @@ and population density (a computed column aliased `density`)
 of every country that has a source.
 
     ```postgresql
-    SELECT Area, Population, (Population/Area) Density
+    SELECT Area, Population, (Population/Area) AS Density
     FROM countries
     WHERE Source IS NOT NULL;
     ```
@@ -160,7 +160,7 @@ of the countries sorted in the descending order.
 The column should be aliased `density`.
 
     ```postgresql
-    SELECT (Population/Area) Density
+    SELECT (Population/Area) AS Density
     FROM countries
     ORDER BY Density DESC;
     ```
