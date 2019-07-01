@@ -118,7 +118,7 @@ Here are the eight most populous countries in the world:
 
     ```postgresql
     SELECT * FROM countries
-    WHERE name < 'N%';
+    WHERE name > 'N%';
     ```
     
 15. Create a query that would return all the countries sorted by their name alphabetically:
