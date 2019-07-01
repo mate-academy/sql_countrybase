@@ -30,27 +30,20 @@ Here are the eight most populous countries in the world:
 
     ```postgresql
     insert into countries
-    values (18, 'India', 3287240, 1348834400, 'Based on 2011 census');
-    insert into countries
-    values (27, 'Bangladesh', 143998, 166774136, null);
-    insert into countries
-    values (34, 'Pakistan', 803940, 205095217, 'Official population clock');
-    insert into countries
-    values (42, 'Nigeria', 923768, 200962000, 'UN projection');
-    insert into countries
-    values (46, 'United States', 9833517, 329424894, 'Official population clock');
-    insert into countries
-    values (54, 'Brazil', 8515767,	210076263, null);
-    insert into countries
-    values (59, 'China ', 9640821, 1397906480, 'Official estimate');
-    insert into countries
-    values (60, 'Indonesia', 1904569, 268074600, 'Official annual projection');
+    values (18, 'India', 3287240, 1348834400, 'Based on 2011 census'),
+ 	   (27, 'Bangladesh', 143998, 166774136, null),
+    	   (34, 'Pakistan', 803940, 205095217, 'Official population clock'),
+    	   (42, 'Nigeria', 923768, 200962000, 'UN projection'),
+    	   (46, 'United States', 9833517, 329424894, 'Official population clock'),
+    	   (54, 'Brazil', 8515767, 210076263, null),
+    	   (59, 'China ', 9640821, 1397906480, 'Official estimate'),
+    	   (60, 'Indonesia', 1904569, 268074600, 'Official annual projection');
     ```
 
 3. Create a query that would return everything from the table:
 
     ```postgresql
-    select * fromcountries
+    select * from countries
     ```
 
 4. Create a query that would return a single row: the country with the ID of 46.
@@ -64,7 +57,7 @@ Here are the eight most populous countries in the world:
 
     ```postgresql
     select * from countries
-    where id=18 or id=34 or id = 54 or id = 59;
+    where id in (18, 34, 54, 59);
     ```
 
 6. Create a query that would return all the countries except the country with the ID of 27 (`Bangladesh`).
