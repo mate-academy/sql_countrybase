@@ -55,7 +55,7 @@ Here are the eight most populous countries in the world:
 5. Create a query that would return the four countries with the following IDs: 18, 34, 54, 59.
 
     ```postgresql
-    SELECT * FROM countries WHERE id = 18 OR id = 34 OR id = 54 OR id = 59;
+    SELECT * FROM countries WHERE id IN (18, 34, 54, 59);
     ```
 
 6. Create a query that would return all the countries except the country with the ID of 27 (`Bangladesh`).
