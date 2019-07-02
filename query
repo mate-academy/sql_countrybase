@@ -1,0 +1,89 @@
+1.
+
+CREATE TABLE countries
+(
+    id               int,
+    "Name"      char(30),
+    "Area"       bigserial,
+    "Population" bigserial,
+    "Source"    char(130)
+);
+
+2.
+
+INSERT INTO "countries" ("id", "Name", "Area", "Population", "Source") 
+    VALUES (18, 'India', 3287240, 1348834400, 'Based on 2011 census');
+INSERT INTO "countries" ("id", "Name", "Area", "Population", "Source") 
+    VALUES (27,	'Bangladesh', 143998,  166774136, null);
+INSERT INTO "countries" ("id", "Name", "Area", "Population", "Source") 
+    VALUES (34, 'Pakistan', 803940, 205095217, 'Official population clock');
+INSERT INTO "countries" ("id", "Name", "Area", "Population", "Source") 
+    VALUES (42, 'Nigeria', 923768,	200962000, 'UN projection');
+INSERT INTO "countries" ("id", "Name", "Area", "Population", "Source")
+    VALUES (46, 'United States', 9833517, 329424894, 'Official population clock');
+INSERT INTO "countries" ("id", "Name", "Area", "Population", "Source")
+    VALUES (54,	'Brazil', 8515767, 210076263, null);
+INSERT INTO "countries" ("id", "Name", "Area", "Population", "Source")
+    VALUES (59, 'China', 9640821, 1397906480, 'Official estimate');
+INSERT INTO "countries" ("id", "Name", "Area", "Population", "Source")
+    VALUES (60, 'Indonesia', 1904569, 268074600, 'Official annual projection');
+
+3.
+SELECT * FROM countries;
+
+4.
+SELECT * FROM countries where id=46;
+
+5.
+SELECT * FROM countries WHERE id IN (18, 34, 54, 59);
+
+6.
+SELECT * FROM countries WHERE id<>27;
+
+7.
+SELECT "Name", "Source" FROM countries WHERE "Area" > 1000000;
+
+8.
+SELECT "id" FROM countries WHERE "Source" is null;
+
+9.
+SELECT "Area", "Population", "Population"/"Area" As "Density" FROM countries WHERE "Source" IS NOT NULL;
+
+10.
+SELECT  DISTINCT "Source" FROM countries;
+
+11.
+SELECT * FROM countries WHERE "Source" LIKE 'Official%' OR "Area" < 1000000;
+
+12.
+SELECT * FROM countries WHERE "Source" LIKE 'Official%' AND "Area" < 1000000;
+
+13.
+SELECT * FROM countries WHERE "Source" NOT LIKE 'Official%';
+
+14.
+SELECT * FROM countries WHERE "Name" LIKE 'N%' OR 'P%' OR 'Q%' OR 'R%' OR 'S&' OR 'T&' OR 'V%' OR 'W%' OR 'X%' OR 'Z%';
+
+15.
+SELECT * FROM countries ORDER BY "Name";
+
+16.
+SELECT "Population"/"Area" As "Density" FROM countries ORDER BY "Density";
+
+17.
+SELECT "Source", "Name" FROM people ORDER BY "Source", "Name"  DESC;
+
+18.
+UPDATE coun SET "Source" = NULL;
+
+19.
+UPDATE countries SET "Source" = 'Official' where "Population" > 1000000000;
+
+20.
+UPUPDATE countries SET "Area" = "Area"*100, "Population" = "Population"+10 WHERE "Id" > 50;
+
+21.
+DELETE FROM countries WHERE "Population" < 300000000;
+
+22.
+DELETE FROM people;
