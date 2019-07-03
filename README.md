@@ -29,6 +29,15 @@ Here are the eight most populous countries in the world:
 2. **Manually** create a query or a series of queries that would fill the table with the information above. Put the query/queries below:
 
     ```postgresql
+    INSERT INTO  table_name   (id, name, area, population, source) 
+    VALUES (18, 'India', 3287240, 1348834400, 'Based on 2011 census'),
+           (27, 'Bangladesh', 143998, 166774136, null),
+           (34, 'Pakistan', 803940, 205095217, 'Official population clock'),
+           (42, 'Nigeria', 923768, 200962000, 'UN projection'),
+           (46, 'United States', 9833517, 329424894, 'Official population clock'),
+           (54, 'Brazil', 8515767, 210076263, null),
+           (59, 'China', 9640821, 1397906480, 'Official estimate'),
+           (60, 'Indonesia', 1904569, 268074600, 'Official annual projection')
     ... here goes your SQL ...
     ```
 
@@ -47,7 +56,7 @@ Here are the eight most populous countries in the world:
 5. Create a query that would return the four countries with the following IDs: 18, 34, 54, 59.
 
     ```postgresql
-    SELECT * FROM table_name WHERE (id = 18) OR (id = 34) OR (id = 54) OR (id = 59)
+    SELECT * FROM table_name WHERE id IN (18, 34, 54, 59)
     ```
 
 6. Create a query that would return all the countries except the country with the ID of 27 (`Bangladesh`).
@@ -65,19 +74,19 @@ Here are the eight most populous countries in the world:
 8. Create a query that would select the IDs of the countries with missing sources:
 
     ```postgresql
-    SELECT id FROM public.countries WHERE source ISNULL
+    SELECT id FROM public.countries WHERE source IS NULL
     ```
     
 9. Create a query that would return the area, population, and population density (a computed column aliased `density`) of every country that has a source.
 
     ```postgresql
-    SELECT area, population, (population / area) as density FROM public.countries WHERE source NOTNULL
+    SELECT area, population, (population / area) as density FROM public.countries WHERE source NOT NULL
     ```
     
 10. Create a query that would return the list of all sources, without repetition:
 
     ```postgresql
-    SELECT DISTINCT source FROM public.countries WHERE TRUE
+    SELECT DISTINCT source FROM public.countries
     ```
 
 11. Create a query that would select the countries whose source is official (starting with `Official`) or the area is below 1,000,000 km<sup>2</sup>:
@@ -95,13 +104,13 @@ Here are the eight most populous countries in the world:
 13. Create a query that would select all the countries except those whose source is official (starting with `Official`):
 
     ```postgresql
-    SELECT * FROM public.countries WHERE NOT (source ~~ 'Official %')
+    SELECT * FROM public.countries WHERE source !~~ 'Official %'
     ```
     
 14. Create a query that would select the countries whose names start with an `N`, `O`, `P`, ..., `X`, `Y`, or `Z`:
 
     ```postgresql
-    SELECT * FROM public.countries WHERE LEFT(name, 1)>= 'N'
+    SELECT * FROM public.countries WHERE LEFT(name, 1) >= 'N'
     ```
     
 15. Create a query that would return all the countries sorted by their name alphabetically:
@@ -125,7 +134,7 @@ Here are the eight most populous countries in the world:
 18. Set all sources to `NULL`:
 
     ```postgresql
-    UPDATE public.countries SET source = null WHERE TRUE
+    UPDATE public.countries SET source = null
     ```
     
 19. Update the sources for the countries with the population over 1,000,000,000 to `Official`:
@@ -149,7 +158,7 @@ Here are the eight most populous countries in the world:
 22. Delete all countries from the table:
 
     ```postgresql
-    DELETE FROM public.countries WHERE TRUE
+    DELETE FROM public.countries
     ```
     
 Don’t forget to create a pull request.
