@@ -29,14 +29,7 @@ Here are the eight most populous countries in the world:
 2. **Manually** create a query or a series of queries that would fill the table with the information above. Put the query/queries below:
 
     ```postgresql
-    INSERT INTO "public"."countries" ("id", "name", "area", "population", "source")
-    VALUES (27,	'Bangladesh', 143998, 166774136, '—'),
-           (34,	'Pakistan',	803940,	205095217, 'Official population clock'),
-           (42,	'Nigeria', 923768, 200962000, 'UN projection'),
-           (46,	'United States', 9833517, 329424894, 'Official population clock'),
-           (54, 'Brazil', 8515767, 210076263, '—' ),
-           (59, 'China', 9640821, 1397906480, 'Official estimate'),
-           (60, 'Indonesia', 1904569, 268074600, 'Official annual projection')
+    INSERT INTO "public"."countries" ("id", "name", "area", "population", "source")VALUES (27,	'Bangladesh',143998, 166774136, '—'),(34, 'Pakistan', 803940, 205095217, 'Official population clock'), (42, 'Nigeria', 923768, 200962000, 'UN projection'), (46, 'United States', 9833517, 329424894, 'Official population clock'), (54, 'Brazil', 8515767, 210076263, '—' ), (59, 'China', 9640821, 1397906480, 'Official estimate'), (60, 'Indonesia', 1904569, 268074600, 'Official annual projection')
     ```
 
 3. Create a query that would return everything from the table:
