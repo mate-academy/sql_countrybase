@@ -112,7 +112,6 @@ Here are the eight most populous countries in the world:
     ```
     
 14. Create a query that would select the countries whose names start with an `N`, `O`, `P`, ..., `X`, `Y`, or `Z`:
-
     ```postgresql
         SELECT * FROM country_db WHERE name LIKE '[N-Z]%'
     ```
